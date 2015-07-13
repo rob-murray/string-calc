@@ -21,6 +21,14 @@ def _parse_token(token)
     return "-"
   end
 
+  if token == "TIMES"
+    return "*"
+  end
+
+  if token == "DIV"
+    return "/"
+  end
+
   if (Integer(token) rescue nil)
     token.to_i
   end
