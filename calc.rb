@@ -12,24 +12,23 @@ def calc(input_expression)
   operators_and_values.each_slice(2).inject(first_value) { |accu, next_op| accu.send(*next_op) }
 end
 
+OPERATOR_MAP = {
+  "PLUS" => "+",
+  "MINUS" => "-",
+  "TIMES" => "*",
+  "DIV" => "/"
+}.freeze
+
+def _valid_int?(value)
+  Integer(value) rescue false
+end
+
 def _parse_token(token)
-  if token == "PLUS"
-    return "+"
+  if OPERATOR_MAP.keys.include? token
+    return OPERATOR_MAP[token]
   end
 
-  if token == "MINUS"
-    return "-"
-  end
-
-  if token == "TIMES"
-    return "*"
-  end
-
-  if token == "DIV"
-    return "/"
-  end
-
-  if (Integer(token) rescue nil)
+  if _valid_int?(token)
     token.to_i
   end
 end
