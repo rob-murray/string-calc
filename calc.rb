@@ -19,16 +19,17 @@ OPERATOR_MAP = {
   "DIV" => "/"
 }.freeze
 
-def _valid_int?(value)
+def _parse_token(token)
+  case
+  when _operator?(token) then OPERATOR_MAP[token]
+  when _operand?(token) then token.to_i
+  end
+end
+
+def _operand?(value)
   Integer(value) rescue false
 end
 
-def _parse_token(token)
-  if OPERATOR_MAP.keys.include? token
-    return OPERATOR_MAP[token]
-  end
-
-  if _valid_int?(token)
-    token.to_i
-  end
+def _operator?(value)
+  OPERATOR_MAP.keys.include? value
 end
