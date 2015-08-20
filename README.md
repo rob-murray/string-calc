@@ -1,5 +1,7 @@
 ## string-calc
 
+[![Build Status](https://travis-ci.org/rob-murray/string-calc.svg)](https://travis-ci.org/rob-murray/string-calc)
+
 A calculator based on string inputs; speak english... get math. Without the use of **eval**.
 
 
