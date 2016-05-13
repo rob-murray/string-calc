@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rob-murray/string-calc.svg)](https://travis-ci.org/rob-murray/string-calc)
 
-A calculator based on string inputs; speak english... get math. Without the use of **eval**. Also without correct order of precedence too but ignore this :)
+A *Ruby* calculator based on string inputs; speak english... get math. Without the use of **eval**. With the correct order of precedence too :bowtie:
 
 
 ### How to use
@@ -28,12 +28,15 @@ require "./calc"
 => 3
 ```
 
-> Implementation taken from [https://github.com/matugm/math-eval](https://github.com/matugm/math-eval).
-
 
 ### Tests
 
 Run tests with: `$ rake test`
+
+
+### Thanks
+
+> Implementation taken from [https://github.com/matugm/math-eval](https://github.com/matugm/math-eval) :raised_hands:
 
 
 ### License
