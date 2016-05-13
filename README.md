@@ -22,7 +22,13 @@ require "./calc"
 => 5
 > calc("10 DIV 2 PLUS 6 MINUS 1")
 => 10
+> calc("1 + 2")
+=> 3
+> calc("2 + 5 - 1 TIMES 4")
+=> 3
 ```
+
+> Implementation taken from [https://github.com/matugm/math-eval](https://github.com/matugm/math-eval).
 
 
 ### Tests
