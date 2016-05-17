@@ -4,32 +4,13 @@
 #
 #   calc("1 PLUS 2") => 3
 #   calc("2 PLUS 5 MINUS 1 PLUS 4") => 10
+#   calc("1 + 2") => 3
+#   calc("2 + 5 - 1 TIMES 4") => 3
 #
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "string-calc"
+
 def calc(input_expression)
-  tokens = input_expression.split(" ")
-  operators_and_values = tokens.map{ |t| _parse_token(t) }.compact
-  first_value = operators_and_values.shift
-  operators_and_values.each_slice(2).inject(first_value) { |accu, next_op| accu.send(*next_op) }
-end
-
-OPERATOR_MAP = {
-  "PLUS" => "+",
-  "MINUS" => "-",
-  "TIMES" => "*",
-  "DIV" => "/"
-}.freeze
-
-def _parse_token(token)
-  case
-  when _operator?(token) then OPERATOR_MAP[token]
-  when _operand?(token) then token.to_i
-  end
-end
-
-def _operand?(value)
-  Integer(value) rescue false
-end
-
-def _operator?(value)
-  OPERATOR_MAP.keys.include? value
+  StringCalc.calc(input_expression)
 end
