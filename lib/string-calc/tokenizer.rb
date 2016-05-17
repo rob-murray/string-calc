@@ -4,6 +4,7 @@ require_relative "multiplication"
 require_relative "division"
 require_relative "operand"
 require "strscan"
+require "set"
 
 module StringCalc
   class Tokenizer
@@ -29,6 +30,7 @@ module StringCalc
       @token_matchers.each do |matcher|
         if token = @buffer.scan(matcher.matching_rule)
           @tokens << matcher.new(token)
+          break
         end
       end
     end
